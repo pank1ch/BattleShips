@@ -26,6 +26,9 @@ namespace ships
             
         }
 
-        
+        private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

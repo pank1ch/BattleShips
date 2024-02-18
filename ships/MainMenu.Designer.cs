@@ -49,7 +49,7 @@
             this.Controls.Add(this.button1);
             this.Name = "MainMenu";
             this.Text = "MainMenu";
-            
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
             this.ResumeLayout(false);
 
         }
