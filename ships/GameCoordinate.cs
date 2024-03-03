@@ -16,9 +16,7 @@ namespace ships
 {
     internal class GameCoordinate
     {
-
-        
-
+    
         private string coordinateLocation;
 		public string CoordinateLocation
         {
@@ -35,8 +33,7 @@ namespace ships
             get { return coordinateLetter; }
 
         }
-
-        
+     
         public string CoordinateNumber
         {
             get { return coordinateNumber; }
@@ -50,11 +47,6 @@ namespace ships
             get { return coordinateButton; }
             
         }
-
-
-
-
-
 
         public GameCoordinate(Button coordinateButton)
         {

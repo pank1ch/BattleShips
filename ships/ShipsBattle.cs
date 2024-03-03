@@ -26,8 +26,7 @@ namespace ships
         bool startFindPlayerShip;
 
         Button targetButton;
-        string targetLocation;
-
+        
         List<GameCoordinate> playerMissedShots;
         List<GameCoordinate> playerHitShots;
         List<GameCoordinate> computerMissedShots;
@@ -73,11 +72,7 @@ namespace ships
                     {
                         targetButton = clickedButton;
                         PlayerShot(targetButton);
-                        //targetLocation = targetButton.Tag.ToString();
-                        //shipFirstLocation = firstClickedButton.Tag.ToString();
-
-
-
+                        
                     }
                 }
                 
@@ -215,88 +210,12 @@ namespace ships
                         IsPlayerTurn = true;
 
 
-
                     }
 
                     break;
 
             }
-
-            //GameCoordinate targetCoordinate = new GameCoordinate(targetButton);
-            //bool IsHit = false;
-            //switch (IsPlayerTurn)
-            //{
-            //    case true:
-
-            //        foreach (var ship in computer.fleet)
-            //        {
-            //            foreach (var shipCoordinate in ship.location)
-            //            {
-            //                if (targetCoordinate.CoordinateLocation == shipCoordinate.CoordinateLocation)
-            //                {
-            //                    IsHit = true;
-            //                    playerHitShots.Add(shipCoordinate);
-
-            //                    MessageBox.Show($"{targetCoordinate.CoordinateLocation} — вы попали!");
-            //                    ship.hp--;
-
-            //                    targetCoordinate.CoordinateButton.BackColor = Color.Red;
-            //                    if (ship.hp == 0)
-            //                    {
-            //                        ship.isAlive = false;
-            //                        MessageBox.Show($"{ship.name} — корабль противника уничтожен!");
-            //                        shipStatusManager.ShowShipStatus(ship);
-            //                    }
-            //                    break;
-            //                }
-            //            }
-            //        }
-            //        if (IsHit == false)
-            //        {
-            //            targetCoordinate.CoordinateButton.BackColor = Color.Black;
-            //            playerMissedShots.Add(targetCoordinate);
-            //            IsPlayerTurn = false;
-            //            EnemyTurn();
-            //        }
-
-            //        break;
-
-            //    case false:
-
-            //        foreach (var ship in player.fleet)
-            //        {
-            //            foreach (var shipCoordinate in ship.location)
-            //            {
-            //                if (targetCoordinate.CoordinateLocation == shipCoordinate.CoordinateLocation)
-            //                {
-            //                    IsHit = true;
-            //                    computerHitShots.Add(shipCoordinate);
-
-            //                    MessageBox.Show($"{targetCoordinate.CoordinateLocation} — противник попал!");
-            //                    ship.hp--;
-
-
-            //                    if (ship.hp == 0)
-            //                    {
-            //                        ship.isAlive = false;
-            //                        MessageBox.Show($"{ship.name} — ваш корабль уничтожен!");
-            //                    }
-            //                    EnemyTurn();
-            //                }
-
-            //            }
-            //        }
-            //        if (IsHit == false)
-            //        {
-
-            //            computerMissedShots.Add(targetCoordinate);
-            //            IsPlayerTurn = true;
-
-            //        }
-
-            //        break;
-
-            //}
+         
         }
 
         private void EnemyTurn()
@@ -323,15 +242,12 @@ namespace ships
                     else
                     {
                         PlayerShot(shotGameCoordinate.CoordinateButton);
-                    }
-                    
-                    
+                    }                                   
                 }              
             }
             else
             {
                 
-
                 GameCoordinate gameCoordinate = null;
 
                 bool isNewCoordinate = false;
@@ -348,9 +264,7 @@ namespace ships
                         }
                     }
 
-
                 }
-
 
                 PlayerShot(gameCoordinate.CoordinateButton);
             }

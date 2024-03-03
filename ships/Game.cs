@@ -13,27 +13,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-// разработал позиционирование кораблей во все 4 стороны,
-// теперь нужно добавить смену сторон расположения корабля (кнопку)
-// фиксануть корабль из одной клетки (катер)
-// начать думать над логикой предотвращения столкновения бортов
-
-//стороны работают, осталось логику предотвращения столкновения бортов.
-
-
-
-
-
-// дорабоать логику столкновения бортов (с первой коордиантой все работает, осталось с дополнительными решить
-// Я ПОНЯЛ СУТЬ ошибки, кнопки появляются в рандомном порядке, поэтому херня выходит,
-
-// коллизия работает осталось доработать ошибки;
-
-// установка кораблей противника наконец-то заработала, благодаря этому каждая игра будет уникальной
-
-
-
-
 
 namespace ships
 {
@@ -234,38 +213,9 @@ namespace ships
         }
 
 
-
-        
-        private void TestButton_Click(object sender, EventArgs e)
-        {
-            foreach (var enemyship in computer.fleet)
-            {
-                foreach (var shipcoordinate in enemyship.location)
-                {
-                    shipcoordinate.CoordinateButton.BackColor = Color.White;
-                }
-                enemyship.location.Clear();
-            }
-
-
-            shipsLocating.InstallEnemyShips();
-
-            foreach (var enemyship in computer.fleet)
-            {
-                //MessageBox.Show(enemyship.name);
-                foreach (var shipcoordinate in enemyship.location)
-                {
-                    shipcoordinate.CoordinateButton.BackColor = Color.Red;
-                }
-
-            }
-
-
-        }
-
         private void Game_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show("Разместите все корабли на игровом поле");
+            MessageBox.Show("Разместите все корабли на игровом поле");
         }
 
         private void switchFieldButton_Click(object sender, EventArgs e)
