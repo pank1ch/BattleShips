@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.GameButton1 = new System.Windows.Forms.Button();
             this.GameButton2 = new System.Windows.Forms.Button();
             this.GameButton3 = new System.Windows.Forms.Button();
@@ -139,11 +140,6 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.StartInstallingButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Корабли = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -168,7 +164,6 @@
             this.directionLabel = new System.Windows.Forms.Label();
             this.confirmInstalationButton = new System.Windows.Forms.Button();
             this.cancelInstallationButton = new System.Windows.Forms.Button();
-            this.TestButton = new System.Windows.Forms.Button();
             this.threeDeckShip2 = new System.Windows.Forms.Label();
             this.shipStatusTextBox3 = new System.Windows.Forms.TextBox();
             this.shipStatusTextBox1 = new System.Windows.Forms.TextBox();
@@ -189,12 +184,17 @@
             this.StartBattleButton = new System.Windows.Forms.Button();
             this.switchFieldButton = new System.Windows.Forms.Button();
             this.finishBattleButton = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // GameButton1
@@ -1315,54 +1315,6 @@
             this.label42.TabIndex = 146;
             this.label42.Text = "Торпедные катера";
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::ships.Properties.Resources.pngwing_com__3_;
-            this.pictureBox5.Location = new System.Drawing.Point(874, 360);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(202, 130);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 145;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::ships.Properties.Resources.pngwing_com__2_;
-            this.pictureBox4.Location = new System.Drawing.Point(623, 360);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(199, 130);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 134;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::ships.Properties.Resources.pngwing_com__1_;
-            this.pictureBox3.Location = new System.Drawing.Point(873, 103);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(203, 141);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 126;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ships.Properties.Resources.pngwing_com;
-            this.pictureBox2.Location = new System.Drawing.Point(623, 102);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(199, 142);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 122;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(-23, -46);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 121;
-            this.pictureBox1.TabStop = false;
-            // 
             // StartInstallingButton
             // 
             this.StartInstallingButton.Location = new System.Drawing.Point(174, 589);
@@ -1606,16 +1558,6 @@
             this.cancelInstallationButton.UseVisualStyleBackColor = true;
             this.cancelInstallationButton.Click += new System.EventHandler(this.cancelInstallationButton_Click);
             // 
-            // TestButton
-            // 
-            this.TestButton.Location = new System.Drawing.Point(1146, 23);
-            this.TestButton.Name = "TestButton";
-            this.TestButton.Size = new System.Drawing.Size(75, 23);
-            this.TestButton.TabIndex = 176;
-            this.TestButton.Text = "тест";
-            this.TestButton.UseVisualStyleBackColor = true;
-            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
-            // 
             // threeDeckShip2
             // 
             this.threeDeckShip2.AutoSize = true;
@@ -1818,10 +1760,10 @@
             // switchFieldButton
             // 
             this.switchFieldButton.Enabled = false;
-            this.switchFieldButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.switchFieldButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.switchFieldButton.Location = new System.Drawing.Point(452, 699);
             this.switchFieldButton.Name = "switchFieldButton";
-            this.switchFieldButton.Size = new System.Drawing.Size(185, 65);
+            this.switchFieldButton.Size = new System.Drawing.Size(212, 65);
             this.switchFieldButton.TabIndex = 195;
             this.switchFieldButton.Text = "Открыть свое поле";
             this.switchFieldButton.UseVisualStyleBackColor = true;
@@ -1830,8 +1772,8 @@
             // finishBattleButton
             // 
             this.finishBattleButton.Enabled = false;
-            this.finishBattleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.finishBattleButton.Location = new System.Drawing.Point(707, 699);
+            this.finishBattleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.finishBattleButton.Location = new System.Drawing.Point(730, 699);
             this.finishBattleButton.Name = "finishBattleButton";
             this.finishBattleButton.Size = new System.Drawing.Size(185, 65);
             this.finishBattleButton.TabIndex = 196;
@@ -1839,12 +1781,60 @@
             this.finishBattleButton.UseVisualStyleBackColor = true;
             this.finishBattleButton.Click += new System.EventHandler(this.finishBattleButton_Click);
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::ships.Properties.Resources.single_deck_ship;
+            this.pictureBox5.Location = new System.Drawing.Point(874, 360);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(202, 130);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 145;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::ships.Properties.Resources.double_deck_ship;
+            this.pictureBox4.Location = new System.Drawing.Point(623, 360);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(199, 130);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 134;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::ships.Properties.Resources.three_deck_ship;
+            this.pictureBox3.Location = new System.Drawing.Point(873, 103);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(203, 141);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 126;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ships.Properties.Resources.four_deck_ship;
+            this.pictureBox2.Location = new System.Drawing.Point(623, 102);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(199, 142);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 122;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(-23, -46);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 121;
+            this.pictureBox1.TabStop = false;
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1415, 865);
+            this.ClientSize = new System.Drawing.Size(1127, 807);
             this.Controls.Add(this.finishBattleButton);
             this.Controls.Add(this.switchFieldButton);
             this.Controls.Add(this.StartBattleButton);
@@ -1865,7 +1855,6 @@
             this.Controls.Add(this.shipStatusTextBox1);
             this.Controls.Add(this.shipStatusTextBox3);
             this.Controls.Add(this.threeDeckShip2);
-            this.Controls.Add(this.TestButton);
             this.Controls.Add(this.cancelInstallationButton);
             this.Controls.Add(this.confirmInstalationButton);
             this.Controls.Add(this.directionLabel);
@@ -2005,16 +1994,19 @@
             this.Controls.Add(this.GameButton3);
             this.Controls.Add(this.GameButton2);
             this.Controls.Add(this.GameButton1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Game";
-            this.Text = "Form1";
+            this.Text = "Морской Бой";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Game_FormClosing);
             this.Load += new System.EventHandler(this.Game_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2162,7 +2154,6 @@
         private System.Windows.Forms.Label directionLabel;
         private System.Windows.Forms.Button confirmInstalationButton;
         private System.Windows.Forms.Button cancelInstallationButton;
-        private System.Windows.Forms.Button TestButton;
         private System.Windows.Forms.Label threeDeckShip2;
         private System.Windows.Forms.TextBox shipStatusTextBox3;
         private System.Windows.Forms.TextBox shipStatusTextBox1;

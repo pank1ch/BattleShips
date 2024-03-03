@@ -35,9 +35,8 @@ namespace ships
         private Button firstClickedButton;
 
         private AbstractShip currentShip;
-        private string shipFirstLocation;
+      
         private string shipType;
-        //private int shipLocationsCount;
         
         private shipDirections shipDirection = shipDirections.Top;
         private int directionNumber = 1;
@@ -76,7 +75,7 @@ namespace ships
                 if (clickedButton.BackColor == Color.White && isShipLocateAllowed)
                 {
                     firstClickedButton = clickedButton;
-                    //shipFirstLocation = firstClickedButton.Tag.ToString();
+                   
                     ShipInstallation();
 
                     if (!(currentShip.location.Count == 0))
@@ -98,15 +97,14 @@ namespace ships
             
             if (shipTable.SelectedRows.Count > 0)
             {
-                // Получаем ссылку на выбранную строку
+                
 
                 selectedShipRow = shipTable.SelectedRows[0];
 
                 var shipValueFromTable = selectedShipRow.Cells["Корабли"].Value;
 
                 if (shipValueFromTable != null)
-                {
-                    // Преобразуем значение в строку и используем его
+                {                 
                     shipType = shipValueFromTable.ToString();
 
                 }
@@ -149,7 +147,7 @@ namespace ships
                 return;
             }
 
-            // ----------------------------------------------------------------------------------------------------
+            // ----------------------------------------------------------------------------------------------------//
         
             currentShip.location.Add(shipFirstCoordinate);
 
@@ -166,7 +164,7 @@ namespace ships
                 case shipDirections.Top:
                     if (OutOfBoundsCheck(shipFirstCoordinate, currentShip, shipDirection) == true)
                     {
-                        MessageBox.Show("Корабль выходит за пределы поля");
+                        MessageBox.Show(gameAlerts.ShipIsOutOfBoundsAlert());
                         return;
                     }
                     lowerBound = Convert.ToInt32(shipFirstCoordinate.CoordinateNumber) - (currentShip.coordinatesForShipCount - 1);
@@ -191,13 +189,13 @@ namespace ships
 
                                 if (currentShipCoordinate.CoordinateButton.BackColor == Color.Blue)
                                 {
-                                    MessageBox.Show("Невозможно установить корабль, установке мешает другое судно");
+                                    MessageBox.Show(gameAlerts.CoordinateForShipOccupiedAlert());
                                     return;
                                 }
 
                                 if (ShipCollision(currentShipCoordinate, currentShip, player))
                                 {
-                                    MessageBox.Show("Невозможно установить корабль, судна сталкиваются бортами");
+                                    MessageBox.Show(gameAlerts.ShipsCollisionAlert());
 
                                     return;
                                 }
@@ -212,7 +210,7 @@ namespace ships
 
                     if (OutOfBoundsCheck(shipFirstCoordinate, currentShip, shipDirection) == true)
                     {
-                        MessageBox.Show("Корабль выходит за пределы поля");
+                        MessageBox.Show(gameAlerts.ShipIsOutOfBoundsAlert());
                         return;
                     }
 
@@ -237,13 +235,13 @@ namespace ships
                             {
                                 if (currentShipCoordinate.CoordinateButton.BackColor == Color.Blue)
                                 {
-                                    MessageBox.Show("Невозможно установить корабль, установке мешает другое судно");
+                                    MessageBox.Show(gameAlerts.CoordinateForShipOccupiedAlert());
                                     return;
                                 }
 
                                 if (ShipCollision(currentShipCoordinate, currentShip, player))
                                 {
-                                    MessageBox.Show("Невозможно установить корабль, судна сталкиваются бортами");
+                                    MessageBox.Show(gameAlerts.ShipsCollisionAlert());
 
                                     return;
                                 }
@@ -261,7 +259,7 @@ namespace ships
 
                     if (OutOfBoundsCheck(shipFirstCoordinate, currentShip, shipDirection) == true)
                     {
-                        MessageBox.Show("Корабль выходит за пределы поля");
+                        MessageBox.Show(gameAlerts.ShipIsOutOfBoundsAlert());
                         return;
                     }
 
@@ -287,13 +285,13 @@ namespace ships
                             {
                                 if (currentShipCoordinate.CoordinateButton.BackColor == Color.Blue)
                                 {
-                                    MessageBox.Show("Невозможно установить корабль, установке мешает другое судно");
+                                    MessageBox.Show(gameAlerts.CoordinateForShipOccupiedAlert());
                                     return;
                                 }
 
                                 if (ShipCollision(currentShipCoordinate, currentShip, player))
                                 {
-                                    MessageBox.Show("Невозможно установить корабль, судна сталкиваются бортами");
+                                    MessageBox.Show(gameAlerts.ShipsCollisionAlert());
 
                                     return;
                                 }
@@ -312,7 +310,7 @@ namespace ships
 
                     if (OutOfBoundsCheck(shipFirstCoordinate, currentShip, shipDirection) == true)
                     {
-                        MessageBox.Show("Корабль выходит за пределы поля");
+                        MessageBox.Show(gameAlerts.ShipIsOutOfBoundsAlert());
                         return;
                     }
 
@@ -339,13 +337,13 @@ namespace ships
 
                                 if (currentShipCoordinate.CoordinateButton.BackColor == Color.Blue)
                                 {
-                                    MessageBox.Show("Невозможно установить корабль, установке мешает другое судно");
+                                    MessageBox.Show(gameAlerts.CoordinateForShipOccupiedAlert());
                                     return;
                                 }
 
                                 if (ShipCollision(currentShipCoordinate, currentShip, player))
                                 {
-                                    MessageBox.Show("Невозможно установить корабль, судна сталкиваются Бортами");
+                                    MessageBox.Show(gameAlerts.ShipsCollisionAlert());
 
                                     return;
                                 }
@@ -357,205 +355,7 @@ namespace ships
                     }
                     break;
             }
-
-                    //switch (shipDirection)
-                    //{
-                    //    case shipDirections.Top:
-                    //        if (OutOfBoundsCheck(shipFirstCoordinate, currentShip, shipDirection) == true)
-                    //        {
-                    //            MessageBox.Show("Корабль выходит за пределы поля");
-                    //            return;
-                    //        }
-                    //        lowerBound = Convert.ToInt32(shipFirstCoordinate.CoordinateNumber) - (currentShip.coordinatesForShipCount - 1);
-                    //        upperBound = Convert.ToInt32(shipFirstCoordinate.CoordinateNumber) - 1;
-
-
-
-                    //        foreach (var playingButton in playingFieldButtons)
-                    //        {
-                    //            if (currentShip.location.Count == currentShip.coordinatesForShipCount)
-                    //            {
-                    //                break;
-                    //            }
-
-                    //            currentShipCoordinate = new GameCoordinate(playingButton.Tag.ToString());
-
-                    //            if (shipFirstCoordinate.CoordinateLetter == currentShipCoordinate.CoordinateLetter)
-                    //            {
-                    //                // Проверяем, попадает ли случайное число в диапазон
-                    //                if (Convert.ToInt32(currentShipCoordinate.CoordinateNumber) >= lowerBound && Convert.ToInt32(currentShipCoordinate.CoordinateNumber) <= upperBound)
-                    //                {
-
-                    //                    if (playingButton.BackColor == Color.Blue)
-                    //                    {
-                    //                        MessageBox.Show("Невозможно установить корабль, установке мешает другое судно");
-                    //                        return;
-                    //                    }
-
-                    //                    if (ShipCollision(currentShipCoordinate, currentShip, player))
-                    //                    {
-                    //                        MessageBox.Show("Невозможно установить корабль, судна сталкиваются бортами");
-
-                    //                        return;
-                    //                    }
-                    //                    playingButton.BackColor = Color.Blue;
-                    //                    currentShip.location.Add(currentShipCoordinate);
-                    //                }
-                    //            }
-                    //        }
-                    //        break;
-
-                    //    case shipDirections.Bottom:
-
-                    //        if (OutOfBoundsCheck(shipFirstCoordinate, currentShip, shipDirection) == true)
-                    //        {
-                    //            MessageBox.Show("Корабль выходит за пределы поля");
-                    //            return;
-                    //        }
-
-                    //        lowerBound = Convert.ToInt32(shipFirstCoordinate.CoordinateNumber) + 1;
-                    //        upperBound = Convert.ToInt32(shipFirstCoordinate.CoordinateNumber) + (currentShip.coordinatesForShipCount - 1);
-
-                    //        foreach (var playingButton in playingFieldButtons)
-                    //        {
-                    //            if (currentShip.location.Count == currentShip.coordinatesForShipCount)
-                    //            {
-                    //                break;
-                    //            }
-                    //            currentShipCoordinate = new GameCoordinate(playingButton.Tag.ToString());
-
-
-
-
-                    //            if (shipFirstCoordinate.CoordinateLetter == currentShipCoordinate.CoordinateLetter)
-                    //            {
-
-
-                    //                // Проверяем, попадает ли случайное число в диапазон
-                    //                if (Convert.ToInt32(currentShipCoordinate.CoordinateNumber) >= lowerBound && Convert.ToInt32(currentShipCoordinate.CoordinateNumber) <= upperBound)
-                    //                {
-                    //                    if (playingButton.BackColor == Color.Blue)
-                    //                    {
-                    //                        MessageBox.Show("Невозможно установить корабль, установке мешает другое судно");
-                    //                        return;
-                    //                    }
-
-                    //                    if (ShipCollision(currentShipCoordinate, currentShip, player))
-                    //                    {
-                    //                        MessageBox.Show("Невозможно установить корабль, судна сталкиваются бортами");
-
-                    //                        return;
-                    //                    }
-
-                    //                    playingButton.BackColor = Color.Blue;
-                    //                    currentShip.location.Add(currentShipCoordinate);
-
-                    //                }
-                    //            }
-                    //        }
-                    //        break;
-
-
-                    //    case shipDirections.Left:
-
-                    //        if (OutOfBoundsCheck(shipFirstCoordinate, currentShip, shipDirection) == true)
-                    //        {
-                    //            MessageBox.Show("Корабль выходит за пределы поля");
-                    //            return;
-                    //        }
-
-                    //        upperBound = Convert.ToInt32(shipFirstCoordinate.CoordinateLetter) - 1;
-                    //        lowerBound = Convert.ToInt32(shipFirstCoordinate.CoordinateLetter) - (currentShip.coordinatesForShipCount - 1);
-
-                    //        foreach (var playingButton in playingFieldButtons)
-                    //        {
-                    //            if (currentShip.location.Count == currentShip.coordinatesForShipCount)
-                    //            {
-                    //                break;
-                    //            }
-
-                    //            currentShipCoordinate = new GameCoordinate(playingButton.Tag.ToString());
-
-
-                    //            if (shipFirstCoordinate.CoordinateNumber == currentShipCoordinate.CoordinateNumber)
-                    //            {
-
-
-                    //                // Проверяем, попадает ли случайное число в диапазон
-                    //                if (Convert.ToInt32(currentShipCoordinate.CoordinateLetter) >= lowerBound && Convert.ToInt32(currentShipCoordinate.CoordinateLetter) <= upperBound)
-                    //                {
-                    //                    if (playingButton.BackColor == Color.Blue)
-                    //                    {
-                    //                        MessageBox.Show("Невозможно установить корабль, установке мешает другое судно");
-                    //                        return;
-                    //                    }
-
-                    //                    if (ShipCollision(currentShipCoordinate, currentShip, player))
-                    //                    {
-                    //                        MessageBox.Show("Невозможно установить корабль, судна сталкиваются бортами");
-
-                    //                        return;
-                    //                    }
-
-                    //                    playingButton.BackColor = Color.Blue;
-                    //                    currentShip.location.Add(currentShipCoordinate);
-
-                    //                }
-
-                    //            }
-                    //        }
-                    //        break;
-
-
-                    //    case shipDirections.Right:
-
-                    //        if (OutOfBoundsCheck(shipFirstCoordinate,currentShip,shipDirection) == true)
-                    //        {
-                    //            MessageBox.Show("Корабль выходит за пределы поля");
-                    //            return;
-                    //        }
-
-                    //        lowerBound = Convert.ToInt32(shipFirstCoordinate.CoordinateLetter) + 1;
-                    //        upperBound = Convert.ToInt32(shipFirstCoordinate.CoordinateLetter) + (currentShip.coordinatesForShipCount - 1);
-
-                    //        foreach (var button in playingFieldButtons)
-                    //        {
-                    //            if (currentShip.location.Count == currentShip.coordinatesForShipCount)
-                    //            {
-                    //                break;
-                    //            }
-
-                    //            currentShipCoordinate = new GameCoordinate(button.Tag.ToString());
-
-
-                    //            if (shipFirstCoordinate.CoordinateNumber == currentShipCoordinate.CoordinateNumber)
-                    //            {
-
-
-                    //                // Проверяем, попадает ли случайное число в диапазон
-                    //                if (Convert.ToInt32(currentShipCoordinate.CoordinateLetter) >= lowerBound && Convert.ToInt32(currentShipCoordinate.CoordinateLetter) <= upperBound)
-                    //                {
-
-                    //                    if (button.BackColor == Color.Blue)
-                    //                    {
-                    //                        MessageBox.Show("Невозможно установить корабль, установке мешает другое судно");
-                    //                        return;
-                    //                    }
-
-                    //                    if (ShipCollision(currentShipCoordinate, currentShip, player))
-                    //                    {
-                    //                        MessageBox.Show("Невозможно установить корабль, судна сталкиваются Бортами");
-
-                    //                        return;
-                    //                    }
-
-                    //                    button.BackColor = Color.Blue;
-                    //                    currentShip.location.Add(currentShipCoordinate);
-                    //                }
-                    //            }
-                    //        }
-                    //        break;
-                    //}
+            
         }
 
         public bool ShipCollision(GameCoordinate shipCoordinate, AbstractShip currentShip, Player player)
@@ -619,12 +419,7 @@ namespace ships
                         }
                     }
 
-                    //if (nearestButton.BackColor == Color.Blue)
-                    //{
-
-                    //    MessageBox.Show(nearestButton.Tag.ToString());
-                    //    return true;
-                    //}
+                    
                 }
             }
 
@@ -757,48 +552,7 @@ namespace ships
         }
 
 
-        //private void InstallShipStatus(AbstractShip currentShip)
-        //{
-        //    foreach (var label in shipLabels)
-        //    {
-        //        if (label.Name.Contains(currentShip.name))
-        //        {
-        //            if (label.Tag.ToString() == "Empty")
-        //            {
-        //                currentShip.shipLabel = label;
-
-        //                label.Tag = "Occupied";
-
-        //                currentShip.shipStatusBox = shipStatusTextBoxes.Find(textBox => (textBox.Tag.ToString() == label.Name.ToString()));                       
-        //                break;
-
-        //            }
-        //        }
-
-        //    }
-        //}
-        //public void ShowShipStatus(AbstractShip currentShip)
-        //{
-
-        //    switch (currentShip.isAlive)
-        //    {
-        //        case true:
-
-        //            currentShip.shipLabel.ForeColor= Color.Green;
-        //            currentShip.shipStatusBox.Text = "В строю";
-        //            currentShip.shipStatusBox.BackColor = Color.Green;
-        //            break;
-        //        case false:
-        //            currentShip.shipLabel.ForeColor = Color.Red;
-        //            currentShip.shipStatusBox.Text = "Уничтожен";
-        //            currentShip.shipStatusBox.BackColor = Color.Red;
-        //            break;
-                
-        //    }
-           
-        //}
-
-        // работает
+       
         public void InstallEnemyShips()
         {
             foreach (var label in shipLabels)
@@ -890,42 +644,10 @@ namespace ships
                             {
                                 notFullyInstalled = false;
                             }
-
-                            
-                            
+                                               
                             break;
 
 
-
-                            //foreach (var playingButton in playingField)
-                            //{
-                            //    if (enemyShip.location.Count == enemyShip.coordinatesForShipCount)
-                            //    {
-                            //        notFullyInstalled = false;
-                            //        break;
-                            //    }
-
-                            //    currentShipCoordinate = new ShipCoordinate(playingButton.Tag.ToString());
-
-                            //    if (shipFirstCoordinate.CoordinateLetter == currentShipCoordinate.CoordinateLetter)
-                            //    {
-                            //        // Проверяем, попадает ли случайное число в диапазон
-                            //        if (Convert.ToInt32(currentShipCoordinate.CoordinateNumber) >= lowerBound && Convert.ToInt32(currentShipCoordinate.CoordinateNumber) <= upperBound)
-                            //        {
-
-                            //            if (CoordinateOccupiedCheck(currentShipCoordinate) == false)
-                            //            {                                           
-                            //                if (ShipCollision(currentShipCoordinate, enemyShip, computer) == false)
-                            //                {
-                            //                    enemyShip.location.Add(currentShipCoordinate);
-                            //                }
-                                            
-                            //            }                 
-                            //        }
-                            //    }
-                            //}
-
-                            //break;
 
                         case shipDirections.Right:
                             if (OutOfBoundsCheck(shipFirstCoordinate, enemyShip, currentShipDirection) == true)
@@ -956,11 +678,7 @@ namespace ships
                                 }
 
                             }
-
-
-
-                            
-
+                      
                             if (enemyShip.location.Count < enemyShip.coordinatesForShipCount)
                             {
                                 enemyShip.location.Clear();
@@ -971,43 +689,9 @@ namespace ships
                             else
                             {
                                 notFullyInstalled = false;
-                            }
-
-                           
+                            }                     
                             break;
-
-
-                            //foreach (var playingButton in playingField)
-                            //{
-                            //    if (enemyShip.location.Count == enemyShip.coordinatesForShipCount)
-                            //    {
-                            //        notFullyInstalled = false;
-                            //        break;
-                            //    }
-
-                            //    currentShipCoordinate = new ShipCoordinate(playingButton.Tag.ToString());
-
-                            //    if (shipFirstCoordinate.CoordinateNumber == currentShipCoordinate.CoordinateNumber)
-                            //    {
-                            //        Проверяем, попадает ли случайное число в диапазон
-                            //        if (Convert.ToInt32(currentShipCoordinate.CoordinateLetter) >= lowerBound && Convert.ToInt32(currentShipCoordinate.CoordinateLetter) <= upperBound)
-                            //        {
-
-                            //            if (CoordinateOccupiedCheck(currentShipCoordinate) == false)
-                            //            {
-                            //                if (ShipCollision(currentShipCoordinate, enemyShip, computer) == false)
-                            //                {
-                            //                    enemyShip.location.Add(currentShipCoordinate);
-                            //                }
-
-                            //            }
-                            //        }
-                            //    }
-                            //}
-
-
-                            //break;
-
+                       
                         case shipDirections.Bottom:
                             if (OutOfBoundsCheck(shipFirstCoordinate, enemyShip, currentShipDirection) == true)
                             {
@@ -1017,12 +701,6 @@ namespace ships
 
                             lowerBound = Convert.ToInt32(shipFirstCoordinate.CoordinateNumber) + 1;
                             upperBound = Convert.ToInt32(shipFirstCoordinate.CoordinateNumber) + (enemyShip.coordinatesForShipCount - 1);
-
-
-
-                            //Button playingButton = playingField[random.Next(0, playingField.Count)];
-
-
 
                             possibleShipCoordinates = playingFieldCoordinates.Where(coordinate => coordinate.CoordinateLetter == shipFirstCoordinate.CoordinateLetter).ToList();
                             bestShipCoordinates = possibleShipCoordinates.Where(coordinate => (Convert.ToInt32(coordinate.CoordinateNumber) >= lowerBound && Convert.ToInt32(coordinate.CoordinateNumber) <= upperBound)).ToList();
@@ -1057,35 +735,7 @@ namespace ships
                             break;
 
 
-                            //foreach (var playingButton in playingField)
-                            //{
-                            //    if (enemyShip.location.Count == enemyShip.coordinatesForShipCount)
-                            //    {
-                            //        notFullyInstalled = false;
-                            //        break;
-                            //    }
-
-                            //    currentShipCoordinate = new ShipCoordinate(playingButton.Tag.ToString());
-
-                            //    if (shipFirstCoordinate.CoordinateLetter == currentShipCoordinate.CoordinateLetter)
-                            //    {
-                            //        // Проверяем, попадает ли случайное число в диапазон
-                            //        if (Convert.ToInt32(currentShipCoordinate.CoordinateNumber) >= lowerBound && Convert.ToInt32(currentShipCoordinate.CoordinateNumber) <= upperBound)
-                            //        {
-
-                            //            if (CoordinateOccupiedCheck(currentShipCoordinate) == false)
-                            //            {
-                            //                if (ShipCollision(currentShipCoordinate, enemyShip, computer) == false)
-                            //                {
-                            //                    enemyShip.location.Add(currentShipCoordinate);
-                            //                }
-
-                            //            }
-                            //        }
-                            //    }
-                            //}
-
-                            //break;
+                            
 
                         case shipDirections.Left:
                             if (OutOfBoundsCheck(shipFirstCoordinate, enemyShip, currentShipDirection) == true)
@@ -1130,47 +780,10 @@ namespace ships
                             }
                             
                             break;
-
-
-
-                            //foreach (var playingButton in playingField)
-                            //{
-                            //    if (enemyShip.location.Count == enemyShip.coordinatesForShipCount)
-                            //    {
-                            //        notFullyInstalled = false;
-                            //        break;
-                            //    }
-                                
-
-                            //    currentShipCoordinate = new ShipCoordinate(playingButton.Tag.ToString());
-
-                            //    if (shipFirstCoordinate.CoordinateNumber == currentShipCoordinate.CoordinateNumber)
-                            //    {
-                            //        // Проверяем, попадает ли случайное число в диапазон
-                            //        if (Convert.ToInt32(currentShipCoordinate.CoordinateLetter) >= lowerBound && Convert.ToInt32(currentShipCoordinate.CoordinateLetter) <= upperBound)
-                            //        {
-
-                            //            if (CoordinateOccupiedCheck(currentShipCoordinate) == false)
-                            //            {
-                            //                if (ShipCollision(currentShipCoordinate, enemyShip, computer) == false)
-                            //                {
-                            //                    enemyShip.location.Add(currentShipCoordinate);
-                            //                }
-
-                            //            }
-                            //        }
-                            //    }
-                            //}
-
-                            //break;
-                        
+         
                     }
-                }
-                
-
-
+                }             
             }
-
         }
 
 
@@ -1255,7 +868,7 @@ namespace ships
                 }
             }
         }
-    }
+    } 
 
 
 }

@@ -63,9 +63,9 @@ namespace ships.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pngwing_com {
+        internal static System.Drawing.Bitmap double_deck_ship {
             get {
-                object obj = ResourceManager.GetObject("pngwing.com", resourceCulture);
+                object obj = ResourceManager.GetObject("double_deck_ship", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace ships.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pngwing_com__1_ {
+        internal static System.Drawing.Bitmap four_deck_ship {
             get {
-                object obj = ResourceManager.GetObject("pngwing.com (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("four_deck_ship", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace ships.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pngwing_com__2_ {
+        internal static System.Drawing.Bitmap main_image {
             get {
-                object obj = ResourceManager.GetObject("pngwing.com (2)", resourceCulture);
+                object obj = ResourceManager.GetObject("main_image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,39 @@ namespace ships.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pngwing_com__3_ {
+        internal static System.Drawing.Bitmap main_image1 {
             get {
-                object obj = ResourceManager.GetObject("pngwing.com (3)", resourceCulture);
+                object obj = ResourceManager.GetObject("main_image1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap main_image2 {
+            get {
+                object obj = ResourceManager.GetObject("main_image2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap single_deck_ship {
+            get {
+                object obj = ResourceManager.GetObject("single_deck_ship", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap three_deck_ship {
+            get {
+                object obj = ResourceManager.GetObject("three_deck_ship", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
